@@ -1,0 +1,439 @@
+/* Custom CSS for City Care Hospital */
+
+/* Global Styles */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --hospital-blue: #1a76d1;
+    --hospital-green: #28a745;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    padding-top: 76px; /* For fixed navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--hospital-blue);
+}
+
+.text-center .section-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.brand-text {
+    color: var(--hospital-blue);
+    margin-left: 10px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 8px;
+    color: #333 !important;
+}
+
+.nav-link.active {
+    color: var(--hospital-blue) !important;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--hospital-blue) 0%, #1a4d8f 100%);
+    padding: 100px 0 80px;
+    color: white;
+    margin-top: -76px;
+    padding-top: 180px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+.emergency-contact {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.emergency-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.hero-img {
+    max-height: 500px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.specialty-card {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 4px solid var(--hospital-blue);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--hospital-blue);
+    margin-bottom: 20px;
+}
+
+.testimonial-card {
+    border-left: 4px solid var(--hospital-blue);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.author-info h5 {
+    margin-bottom: 0;
+}
+
+.author-info p {
+    color: #6c757d;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* About Page Styles */
+.page-header {
+    background-color: #f8f9fa;
+    margin-top: -76px;
+    padding-top: 150px;
+}
+
+.about-image {
+    position: relative;
+}
+
+.years-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background-color: var(--hospital-blue);
+    color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.years-badge span {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.years-badge p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.ceo-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.award-card {
+    border-top: 4px solid var(--hospital-green);
+}
+
+.award-icon {
+    font-size: 2.5rem;
+    color: var(--hospital-green);
+}
+
+/* Services Page Styles */
+.service-card {
+    overflow: hidden;
+}
+
+.service-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.1);
+}
+
+.service-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--hospital-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-features {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-features li {
+    margin-bottom: 8px;
+    color: #6c757d;
+}
+
+.service-features i {
+    color: var(--hospital-green);
+}
+
+.additional-services {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.additional-service-item {
+    padding: 20px 10px;
+}
+
+.additional-service-item i {
+    font-size: 2.5rem;
+    color: var(--hospital-blue);
+    margin-bottom: 15px;
+}
+
+.additional-service-item h6 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Doctors Page Styles */
+.doctor-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.doctor-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-specialty {
+    color: var(--hospital-blue);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.doctor-department {
+    display: inline-block;
+    background-color: #e9f7fe;
+    color: var(--hospital-blue);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Appointment Page Styles */
+.appointment-form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-placeholder {
+    background-color: #f8f9fa;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.map-placeholder i {
+    font-size: 4rem;
+    color: var(--hospital-blue);
+    margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+}
+
+.footer h5 {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.footer h5:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--hospital-blue);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--hospital-blue);
+    transform: translateY(-5px);
+}
+
+/* Alert Styles */
+.alert-custom {
+    border-radius: 10px;
+    border: none;
+    padding: 20px;
+}
+
+/* Form Validation */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .emergency-number {
+        font-size: 2rem;
+    }
+    
+    .hero-img {
+        margin-top: 30px;
+        max-height: 300px;
+    }
+    
+    .page-header {
+        padding-top: 130px;
+    }
+    
+    .years-badge {
+        width: 100px;
+        height: 100px;
+        bottom: -15px;
+        right: -15px;
+    }
+    
+    .years-badge span {
+        font-size: 2rem;
+    }
+}

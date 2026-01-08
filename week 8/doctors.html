@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - City Care Hospital</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./PIC.jpg" alt="City Care Hospital Logo" height="50" class="d-inline-block align-top">
+                <span class="brand-text">City Care Hospital</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="doctors.html">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointment.html">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3 mt-2 mt-lg-0" href="appointment.html">
+                            <i class="fas fa-calendar-check me-1"></i>Book Appointment
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-5 fw-bold">Our Medical Team</h1>
+                    <p class="lead">Meet our team of experienced and dedicated healthcare professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Search & Filter Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Find Your Doctor</h2>
+                    <p class="text-muted">Search for doctors by name or filter by specialization</p>
+                </div>
+            </div>
+            
+            <!-- Search and Filter Controls -->
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="searchInput" class="form-label">Search by Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        <input type="text" class="form-control" id="searchInput" placeholder="Enter doctor's name...">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="specialtyFilter" class="form-label">Filter by Specialty</label>
+                                    <select class="form-select" id="specialtyFilter">
+                                        <option value="all">All Specialties</option>
+                                        <option value="Cardiology">Cardiology</option>
+                                        <option value="Neurology">Neurology</option>
+                                        <option value="Orthopedics">Orthopedics</option>
+                                        <option value="Pediatrics">Pediatrics</option>
+                                        <option value="Surgery">Surgery</option>
+                                        <option value="Dermatology">Dermatology</option>
+                                        <option value="Oncology">Oncology</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between">
+                                        <button id="resetFilters" class="btn btn-outline-secondary">
+                                            <i class="fas fa-redo me-1"></i>Reset Filters
+                                        </button>
+                                        <div>
+                                            <span id="doctorCount" class="badge bg-primary fs-6">6 doctors found</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doctors Grid -->
+            <div class="row" id="doctorsContainer">
+                <!-- Doctors will be dynamically inserted here by JavaScript -->
+            </div>
+            
+            <!-- No Results Message (Hidden by default) -->
+            <div class="row mt-5" id="noResults" style="display: none;">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="card">
+                        <div class="card-body py-5">
+                            <i class="fas fa-user-md fa-4x text-muted mb-3"></i>
+                            <h3>No Doctors Found</h3>
+                            <p class="text-muted">Try adjusting your search or filter criteria</p>
+                            <button id="resetFilters2" class="btn btn-primary">Reset Filters</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <!-- Same footer content as index.html -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="mb-4">
+                        <img src="PIC.jpg" alt="City Care Hospital Logo" height="40" class="me-2">
+                        City Care Hospital
+                    </h5>
+                    <p>Providing compassionate, world-class healthcare to our community since 1995. Your health and well-being are our top priorities.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html" class="text-white-50 text-decoration-none">Doctors</a></li>
+                        <li><a href="appointment.html" class="text-white-50 text-decoration-none">Appointment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-4">Emergency Contacts</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i>1-800-CARE-NOW</li>
+                        <li class="mb-2"><i class="fas fa-ambulance me-2"></i>1-800-AMBULANCE</li>
+                        <li><i class="fas fa-first-aid me-2"></i>Emergency Department</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-4">Hospital Location</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Medical Center Drive</p>
+                    <p class="mb-2">Healthcare District</p>
+                    <p>Springfield, ST 12345</p>
+                    <a href="appointment.html#location" class="btn btn-outline-light btn-sm mt-2">View on Map</a>
+                </div>
+            </div>
+            <hr class="bg-white mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2024 City Care Hospital. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p><a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    
+    <!-- Doctors Data and Logic -->
+    <script>
+        // Doctors Data Array
+        const doctors = [
+            {
+                id: 1,
+                name: "Dr. Sarah Johnson",
+                specialty: "Cardiology",
+                department: "Cardiology",
+                image: "dr5.jpg",
+                education: "MD, Cardiology, Johns Hopkins University",
+                experience: "15+ years",
+                description: "Specializes in interventional cardiology and heart failure management."
+            },
+            {
+                id: 2,
+                name: "Dr. Michael Chen",
+                specialty: "Neurology",
+                department: "Neurology",
+                image: "dr.jpg",
+                education: "MD, Neurology, Harvard Medical School",
+                experience: "12+ years",
+                description: "Expert in stroke management and neurological disorders."
+            },
+            {
+                id: 3,
+                name: "Dr. Robert Williams",
+                specialty: "Orthopedics",
+                department: "Orthopedics",
+                image: "dr.webp",
+                education: "MD, Orthopedic Surgery, Stanford University",
+                experience: "18+ years",
+                description: "Specializes in joint replacements and sports injuries."
+            },
+            {
+                id: 4,
+                name: "Dr. Emily Davis",
+                specialty: "Pediatrics",
+                department: "Pediatrics",
+                image: "dr3.jpg",
+                education: "MD, Pediatrics, University of California",
+                experience: "10+ years",
+                description: "Pediatric care specialist with focus on childhood development."
+            },
+            {
+                id: 5,
+                name: "Dr. James Wilson",
+                specialty: "Surgery",
+                department: "Surgery",
+                image: "download (1.jpg",
+                education: "MD, General Surgery, Mayo Clinic",
+                experience: "20+ years",
+                description: "Experienced in laparoscopic and robotic surgeries."
+            },
+            {
+                id: 6,
+                name: "Dr. Lisa Martinez",
+                specialty: "Dermatology",
+                department: "Dermatology",
+                image: "dr1.jpg",
+                education: "MD, Dermatology, Yale School of Medicine",
+                experience: "8+ years",
+                description: "Specializes in skin cancer treatment and cosmetic dermatology."
+            },
+            {
+                id: 7,
+                name: "Dr. David Brown",
+                specialty: "Oncology",
+                department: "Oncology",
+                image: "dr6.webp",
+                education: "MD, Oncology, MD Anderson Cancer Center",
+                experience: "14+ years",
+                description: "Expert in chemotherapy and targeted cancer therapies."
+            },
+            {
+                id: 8,
+                name: "Dr. Amanda Taylor",
+                specialty: "Cardiology",
+                department: "Cardiology",
+                image: "dr7.webp",
+                education: "MD, Cardiology, Cleveland Clinic",
+                experience: "11+ years",
+                description: "Specializes in cardiac electrophysiology and arrhythmias."
+            }
+        ];
+
+        // Function to render doctors
+        function renderDoctors(doctorsArray) {
+            const container = document.getElementById('doctorsContainer');
+            const noResults = document.getElementById('noResults');
+            const doctorCount = document.getElementById('doctorCount');
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Update doctor count
+            doctorCount.textContent = `${doctorsArray.length} doctors found`;
+            
+            // If no doctors match the filter
+            if (doctorsArray.length === 0) {
+                noResults.style.display = 'block';
+                container.style.display = 'none';
+                return;
+            }
+            
+            // Show container and hide no results
+            noResults.style.display = 'none';
+            container.style.display = 'flex';
+            
+            // Render each doctor
+            doctorsArray.forEach(doctor => {
+                const doctorCard = document.createElement('div');
+                doctorCard.className = 'col-lg-3 col-md-6 mb-4';
+                doctorCard.innerHTML = `
+                    <div class="card doctor-card h-100">
+                        <img src="${doctor.image}" alt="${doctor.name}" class="doctor-img">
+                        <div class="card-body">
+                            <h4 class="card-title">${doctor.name}</h4>
+                            <p class="doctor-specialty">${doctor.specialty}</p>
+                            <span class="doctor-department">${doctor.department}</span>
+                            <p class="card-text">${doctor.description}</p>
+                            <div class="doctor-info mt-3">
+                                <p class="text-muted small mb-1"><i class="fas fa-graduation-cap me-1"></i>${doctor.education}</p>
+                                <p class="text-muted small"><i class="fas fa-briefcase me-1"></i>${doctor.experience} experience</p>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="appointment.html" class="btn btn-primary btn-sm w-100">
+                                <i class="fas fa-calendar-check me-1"></i>Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(doctorCard);
+            });
+        }
+
+        // Function to filter doctors
+        function filterDoctors() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const specialtyFilter = document.getElementById('specialtyFilter').value;
+            
+            let filteredDoctors = doctors;
+            
+            // Filter by search input
+            if (searchInput) {
+                filteredDoctors = filteredDoctors.filter(doctor => 
+                    doctor.name.toLowerCase().includes(searchInput) ||
+                    doctor.specialty.toLowerCase().includes(searchInput) ||
+                    doctor.department.toLowerCase().includes(searchInput)
+                );
+            }
+            
+            // Filter by specialty
+            if (specialtyFilter !== 'all') {
+                filteredDoctors = filteredDoctors.filter(doctor => 
+                    doctor.specialty === specialtyFilter || doctor.department === specialtyFilter
+                );
+            }
+            
+            // Render filtered doctors
+            renderDoctors(filteredDoctors);
+        }
+
+        // Function to reset filters
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('specialtyFilter').value = 'all';
+            renderDoctors(doctors);
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDoctors(doctors);
+            
+            // Add event listeners
+            document.getElementById('searchInput').addEventListener('input', filterDoctors);
+            document.getElementById('specialtyFilter').addEventListener('change', filterDoctors);
+            document.getElementById('resetFilters').addEventListener('click', resetFilters);
+            document.getElementById('resetFilters2').addEventListener('click', resetFilters);
+        });
+    </script>
+</body>
+</html>
